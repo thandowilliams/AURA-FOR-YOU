@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>for you — AURA by Thando</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:opsz,wght@6..96,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --mauve: #6B3D4E;
+  --dark-mauve: #4A2535;
+  --cream: #FDF6F0;
+  --charcoal: #1C1C1C;
+  --gold: #C9974A;
+  --soft-white: #FAF4EF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: var(--soft-white);
+  color: var(--mauve);
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 15, 20, 0.25);
+  z-index: 1;
+}
+
+/* ── NAV ── */
+nav {
+  position: relative;
+  z-index: 10;
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.nav-brand {
+  font-family: 'Bodoni Moda SC', serif;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 55px;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding-top: 0.5rem;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover { opacity: 1; }
+
+/* ── WELCOME LETTER ── */
+.welcome-block {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem 5rem;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome-title {
+  font-family: 'Bodoni Moda SC', serif;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  line-height: 1;
+}
+
+.welcome-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.95;
+  color: rgba(253, 246, 240, 0.92);
+  max-width: 560px;
+  margin: 0 auto 1.8rem;
+}
+
+.welcome-letter p { margin-bottom: 1.2rem; }
+.welcome-letter p:last-of-type { margin-bottom: 0; }
+
+.welcome-signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: rgba(253, 246, 240, 0.75);
+  margin-top: 1.8rem;
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-indicator {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding-bottom: 2.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(253,246,240,0.5);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.scroll-indicator svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: rgba(253,246,240,0.5);
+  stroke-width: 1.5;
+  margin: 0 auto;
+  display: block;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+/* ── FORM SECTION ── */
+.form-section {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+}
+
+.section-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  opacity: 0.5;
+  margin-bottom: 0.9rem;
+}
+
+.section-title {
+  font-family: 'Bodoni Moda SC', serif;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--dark-mauve);
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.7rem;
+}
+
+.section-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--mauve);
+  opacity: 0.7;
+  line-height: 1.85;
+  margin-bottom: 2.8rem;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-grid { display: grid; gap: 1.4rem; }
+
+.field-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  opacity: 0.6;
+}
+
+input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(107,61,78,0.2);
+  padding: 0.6rem 0.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--dark-mauve);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input::placeholder { color: rgba(107,61,78,0.3); font-style: italic; }
+input:focus { border-bottom-color: var(--mauve); }
+
+.btn-primary {
+  margin-top: 2.2rem;
+  width: 100%;
+  padding: 1.1rem 2rem;
+  background: transparent;
+  border: 1px solid rgba(107,61,78,0.35);
+  color: var(--dark-mauve);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.btn-primary:hover {
+  background: var(--mauve);
+  color: var(--cream);
+  border-color: var(--mauve);
+}
+
+.error-msg {
+  display: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: #a04050;
+  margin-top: 0.8rem;
+}
+
+/* ── LOADING ── */
+.loading {
+  display: none;
+  text-align: center;
+  padding: 6rem 2rem;
+  min-height: 40vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.loading-star {
+  font-size: 1.5rem;
+  animation: spin 4s linear infinite;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+.loading-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--mauve);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:0.85} }
+
+/* ── READING ── */
+.reading-section {
+  display: none;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reading-intro {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.reading-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--dark-mauve);
+  margin: 0.5rem 0;
+  line-height: 1;
+}
+
+.reading-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--mauve);
+  opacity: 0.4;
+  margin-top: 0.4rem;
+}
+
+.placement-block {
+  margin-bottom: 2.8rem;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.placement-block:nth-child(1) { animation-delay: 0.1s; }
+.placement-block:nth-child(2) { animation-delay: 0.25s; }
+.placement-block:nth-child(3) { animation-delay: 0.4s; }
+.placement-block:nth-child(4) { animation-delay: 0.55s; }
+
+.placement-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(107,61,78,0.1);
+}
+
+.placement-icon { font-size: 1.2rem; line-height: 1; opacity: 0.7; }
+
+.placement-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  opacity: 0.55;
+}
+
+.placement-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2.5vw, 1.12rem);
+  color: var(--dark-mauve);
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+.aspects-block {
+  background: linear-gradient(135deg, rgba(242,184,198,0.12), rgba(247,201,126,0.08));
+  border: 1px solid rgba(107,61,78,0.1);
+  padding: 2rem 1.8rem;
+  margin-bottom: 2.8rem;
+  animation: fadeUp 0.8s ease 0.65s forwards;
+  opacity: 0;
+}
+
+.aspects-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 1.4rem;
+  text-align: center;
+}
+
+.aspect-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(107,61,78,0.08);
+}
+
+.aspect-item:last-child { border-bottom: none; padding-bottom: 0; }
+.aspect-item:first-child { padding-top: 0; }
+
+.aspect-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--mauve);
+  line-height: 1.85;
+}
+
+.lifemath-block {
+  text-align: center;
+  margin-bottom: 2.8rem;
+  animation: fadeUp 0.8s ease 0.8s forwards;
+  opacity: 0;
+}
+
+.lifemath-number {
+  font-family: 'Bodoni Moda SC', serif;
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 700;
+  color: var(--dark-mauve);
+  line-height: 1;
+  margin: 1rem 0 0.5rem;
+  opacity: 0.15;
+}
+
+.lifemath-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  opacity: 0.45;
+  margin-bottom: 1.2rem;
+}
+
+.lifemath-placeholder {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--mauve);
+  opacity: 0.4;
+  line-height: 1.8;
+  border: 1px dashed rgba(107,61,78,0.2);
+  padding: 1.5rem;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.closing-block {
+  background: linear-gradient(135deg, rgba(249,197,209,0.25), rgba(247,201,126,0.18));
+  border: 1px solid rgba(107,61,78,0.12);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s ease 0.95s forwards;
+  opacity: 0;
+}
+
+.closing-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  opacity: 0.45;
+  margin-bottom: 1.2rem;
+}
+
+.closing-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 3vw, 1.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--dark-mauve);
+  line-height: 1.9;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.cta-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease 1.1s forwards;
+  opacity: 0;
+}
+
+.cta-btn {
+  padding: 1.1rem 1rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s;
+  line-height: 1;
+}
+
+.cta-btn.filled {
+  background: var(--mauve);
+  color: var(--cream);
+  border: 1px solid var(--mauve);
+}
+.cta-btn.filled:hover { background: var(--dark-mauve); border-color: var(--dark-mauve); }
+
+.cta-btn.outline {
+  background: transparent;
+  color: var(--dark-mauve);
+  border: 1px solid rgba(107,61,78,0.3);
+}
+.cta-btn.outline:hover { background: rgba(107,61,78,0.05); }
+
+.cta-sub {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  opacity: 0.6;
+  margin-top: 0.35rem;
+}
+
+.reset-link {
+  display: block;
+  text-align: center;
+  margin: 0 auto 4rem;
+  width: fit-content;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  opacity: 0.35;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.divider {
+  width: 32px;
+  height: 1px;
+  background: rgba(107,61,78,0.2);
+  margin: 2.5rem auto;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-wordmark {
+  font-family: 'Bodoni Moda SC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: rgba(253,246,240,0.4);
+  margin-bottom: 1.6rem;
+  display: block;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.footer-socials a {
+  color: rgba(253,246,240,0.35);
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.footer-socials a:hover { color: rgba(253,246,240,0.85); }
+.footer-socials svg { width: 16px; height: 16px; fill: currentColor; }
+
+.footer-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: rgba(253,246,240,0.18);
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .nav-brand { font-size: 38px; line-height: 36px; }
+  .nav-links { gap: 1.2rem; }
+  .nav-links a { font-size: 10px; }
+  .welcome-title { font-size: 2.2rem; }
+  .welcome-letter { font-size: 0.95rem; }
+  .cta-block { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="sky.gif" class="hero-bg" alt="sky"/>
+  <div class="hero-overlay"></div>
+
+  <nav>
+    <a href="/" class="nav-brand">AURA</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/shop">Shop</a></li>
+    </ul>
+  </nav>
+
+  <div class="welcome-block">
+    <h1 class="welcome-title">Welcome.</h1>
+    <div class="welcome-letter">
+      <p>I'm so glad you're here.</p>
+      <p>A while back I showed someone I love what I'd learned — about her strengths, her patterns, why she moved through the world the way she did. I watched her eyes open. She finally understood herself. That moment is why I built this.</p>
+      <p>This is a space where you get to be seen. Not judged, not analysed — just seen. I'm going to share what I know about you, based on the moment you came into this world. Your strengths. Your gifts. The things that make you, undeniably, you.</p>
+      <p>We're not uncovering anything new. We're just remembering together.</p>
+      <p>Come in. I've been waiting for you.</p>
+    </div>
+    <p class="welcome-signature">— Thando</p>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>scroll</span>
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="formSection">
+  <p class="section-eyebrow">for you</p>
+  <h2 class="section-title">This Is For You</h2>
+  <p class="section-body">enter your details and let me show you what I know about you.</p>
+
+  <div class="form-grid">
+    <div class="field-wrap">
+      <label for="nameInput">your name</label>
+      <input type="text" id="nameInput" placeholder="what do they call you?" autocomplete="off"/>
+    </div>
+    <div class="field-wrap">
+      <label for="dobInput">date of birth</label>
+      <input type="date" id="dobInput"/>
+    </div>
+    <div class="field-wrap">
+      <label for="tobInput">time of birth</label>
+      <input type="time" id="tobInput"/>
+    </div>
+    <div class="field-wrap">
+      <label for="cityInput">city of birth</label>
+      <input type="text" id="cityInput" placeholder="where did your story begin?" autocomplete="off"/>
+    </div>
+  </div>
+
+  <button class="btn-primary" onclick="generateReading()">reveal my aura</button>
+  <p class="error-msg" id="errorMsg">please fill in all fields, love. every detail matters. ✦</p>
+</section>
+
+<!-- LOADING -->
+<div class="loading" id="loadingSection" style="display:none; flex-direction:column; align-items:center; justify-content:center; min-height:50vh;">
+  <span class="loading-star">✦</span>
+  <p class="loading-text">reading the stars for you...</p>
+</div>
+
+<!-- READING -->
+<section class="reading-section" id="readingSection">
+  <div class="reading-intro">
+    <p class="section-eyebrow">your aura reading</p>
+    <p class="reading-name" id="readingName"></p>
+    <p class="reading-date" id="readingDate"></p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="placement-block">
+    <div class="placement-header">
+      <span class="placement-icon">☀</span>
+      <span class="placement-label">your energy</span>
+    </div>
+    <p class="placement-text" id="sunText"></p>
+  </div>
+
+  <div class="placement-block">
+    <div class="placement-header">
+      <span class="placement-icon">☽</span>
+      <span class="placement-label">your emotional world</span>
+    </div>
+    <p class="placement-text" id="moonText"></p>
+  </div>
+
+  <div class="placement-block">
+    <div class="placement-header">
+      <span class="placement-icon">↑</span>
+      <span class="placement-label">how the world sees you</span>
+    </div>
+    <p class="placement-text" id="risingText"></p>
+  </div>
+
+  <div class="placement-block">
+    <div class="placement-header">
+      <span class="placement-icon">♀</span>
+      <span class="placement-label">your heart</span>
+    </div>
+    <p class="placement-text" id="venusText"></p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="aspects-block">
+    <p class="aspects-eyebrow">✦ gifts written in your chart ✦</p>
+    <div id="aspectsList"></div>
+  </div>
+
+  <div class="lifemath-block">
+    <p class="section-eyebrow">your life path</p>
+    <p class="lifemath-number" id="lifepathNumber"></p>
+    <p class="lifemath-label">life path number</p>
+    <div class="lifemath-placeholder">coming soon — a personal letter from Thando, written just for you. 🌿</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="closing-block">
+    <p class="closing-eyebrow">a note from aura</p>
+    <p class="closing-text" id="closingText"></p>
+  </div>
+
+  <div class="cta-block">
+    <a href="#" class="cta-btn filled">
+      book a reading
+      <span class="cta-sub">your full reading, with Thando</span>
+    </a>
+    <a href="#" class="cta-btn outline">
+      shop the collection
+      <span class="cta-sub">chosen for your chart</span>
+    </a>
+  </div>
+
+  <button class="reset-link" onclick="resetReading()">start over</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-wordmark">AURA</span>
+  <div class="footer-socials">
+    <a href="https://facebook.com/aurabythando" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://instagram.com/aurabythando" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://tiktok.com/@aurabythando" target="_blank" aria-label="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+    </a>
+    <a href="https://pinterest.com/aurabythando" target="_blank" aria-label="Pinterest">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+    </a>
+    <a href="https://youtube.com/@aurabythando" target="_blank" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+    </a>
+    <a href="mailto:hello@aurabythando.com" aria-label="Email">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+  </div>
+  <p class="footer-copy">© 2026 AURA by Thando. all rights reserved.</p>
+</footer>
+
+<script>
+const SIGNS=[
+  {name:"Aries",symbol:"♈",element:"fire",m1:3,d1:21,m2:4,d2:19},
+  {name:"Taurus",symbol:"♉",element:"earth",m1:4,d1:20,m2:5,d2:20},
+  {name:"Gemini",symbol:"♊",element:"air",m1:5,d1:21,m2:6,d2:20},
+  {name:"Cancer",symbol:"♋",element:"water",m1:6,d1:21,m2:7,d2:22},
+  {name:"Leo",symbol:"♌",element:"fire",m1:7,d1:23,m2:8,d2:22},
+  {name:"Virgo",symbol:"♍",element:"earth",m1:8,d1:23,m2:9,d2:22},
+  {name:"Libra",symbol:"♎",element:"air",m1:9,d1:23,m2:10,d2:22},
+  {name:"Scorpio",symbol:"♏",element:"water",m1:10,d1:23,m2:11,d2:21},
+  {name:"Sagittarius",symbol:"♐",element:"fire",m1:11,d1:22,m2:12,d2:21},
+  {name:"Capricorn",symbol:"♑",element:"earth",m1:12,d1:22,m2:1,d2:19},
+  {name:"Aquarius",symbol:"♒",element:"air",m1:1,d1:20,m2:2,d2:18},
+  {name:"Pisces",symbol:"♓",element:"water",m1:2,d1:19,m2:3,d2:20},
+];
+
+const INTERPRETATIONS={
+  sun:{
+    Aries:"you were made to move first. before the plan is perfect, before everyone is ready — you go. that courage is not recklessness. it is vision. you see what is possible before others can even imagine it. your fire is a gift. let it lead.",
+    Taurus:"you build things that last. your love, your work, your presence — all of it is slow, intentional, and real. people feel safe around you because you are not performing. you are simply, fully, yourself. that groundedness is rare. it is your power.",
+    Gemini:"your mind moves like light — quick, curious, touching everything. you are not scattered. you are searching. and what you find, you turn into conversation, connection, and meaning. your words have always been your magic. trust them.",
+    Cancer:"you feel things before they happen. that sensitivity is not a wound — it is a gift you were born carrying. you create safety for everyone around you without even trying. now ask yourself: who creates safety for you?",
+    Leo:"you were not born to shrink. your warmth, your creativity, your presence — these were meant to be seen and felt. when you walk into a room something shifts. you do not have to earn that. you already carry it. step into it fully.",
+    Virgo:"you notice everything. the small things other people walk past — you catch them, hold them, tend to them. your devotion to the details that make life beautiful is one of your greatest gifts. let yourself receive the same care you so freely give.",
+    Libra:"you were born with an eye for what is beautiful and a heart that longs for what is fair. you bring people together without trying. harmony follows you — in the spaces you create, the relationships you tend, the way you move through the world. that is not small. that is everything.",
+    Scorpio:"you have been through things that would have broken most people. and yet here you are — still standing, still feeling, still reaching for more. your depth is your power. you do not do surface. you never have. and the people lucky enough to know you fully understand exactly why that is a gift.",
+    Sagittarius:"your soul was born pointed at the horizon. you are always searching — for truth, for meaning, for the version of life that feels fully alive. that restlessness is not a flaw. it is your compass. follow it. it has never been wrong about you.",
+    Capricorn:"you carry more than most people know. quietly, steadily, you build — your vision, your life, your legacy. you do not need applause to keep going. but know this: what you are creating matters. the patience you carry is not ordinary. it is remarkable.",
+    Aquarius:"you have always thought differently. seen things others missed. felt out of place in rooms that were simply not built for someone like you yet. your vision is ahead of its time. that is not a burden. that is exactly the point.",
+    Pisces:"you live between worlds — the one everyone sees and the one only you can feel. that depth of feeling, that quiet knowing, that ability to hold space for everyone's pain — it is a gift as much as it is a weight. your softness is not weakness. it is its own kind of strength.",
+  },
+  moon:{
+    Aries:"your feelings arrive fast and fierce and honest. you do not sit with things for long — you feel, you respond, you move. that emotional courage is rare. not everyone is brave enough to feel that loudly. you are.",
+    Taurus:"you find peace in the physical world — good food, soft textures, familiar spaces, people who feel like home. you do not ask for much. just for things to be real. your need for stability is not neediness. it is wisdom.",
+    Gemini:"you process your feelings by talking them out, thinking them through, turning them into something you can understand. your emotional world is rich and fast-moving. writing, conversation, music — these are how you find your way back to yourself.",
+    Cancer:"you feel everything — and not just your own feelings. you walk into a room and absorb the energy before a single word is spoken. that empathy is your gift. protect it. not everyone deserves access to that depth of you.",
+    Leo:"your heart is generous and your love is warm and your need to feel truly seen is completely valid. you give so much of yourself to the people you love. let them show up for you too. you deserve to be loved as loudly as you love.",
+    Virgo:"you show love through the small things — the message you remembered to send, the detail you noticed, the quiet way you show up. your care is constant and real even when it goes unspoken. let someone take care of you for once.",
+    Libra:"your peace of mind matters deeply to you — and that is not vanity, that is self-awareness. you restore yourself through beauty, through balance, through relationships that feel equal and kind. you were not made for chaos. you were made for harmony.",
+    Scorpio:"your emotional world runs so deep that most people will never fully see it. and that is okay. you do not owe anyone your depth. what you feel is real and it is powerful and it is yours. the right people will earn it.",
+    Sagittarius:"your spirit needs room to breathe. freedom is not just something you want — it is something you need to feel emotionally safe. you restore yourself through movement, through learning, through moments that remind you the world is bigger than your worries.",
+    Capricorn:"you carry your feelings quietly and your strength loudly. you have always been the one who holds it together — for yourself, for everyone around you. but even the strongest people need somewhere to land. you are allowed to need that too.",
+    Aquarius:"you feel things deeply but you experience them differently — through your mind as much as your heart. you need space to process on your own terms. that independence is not coldness. it is just how you are wired. and it is completely valid.",
+    Pisces:"your emotional world is vast and boundless and beautiful. you absorb the feelings of everyone around you without even trying. that is a gift — and it is also a responsibility to yourself. come back to your own feelings often. they matter most.",
+  },
+  rising:{
+    Aries:"you arrive before you arrive. people feel your energy the moment you enter. there is a boldness to your presence that is impossible to ignore — not because you demand attention, but because you carry something alive in you. that is not something you learned. you were born with it.",
+    Taurus:"there is something magnetic about the way you move through the world — unhurried, grounded, certain. people are drawn to your calm without knowing why. you make things feel more beautiful just by being in them. that is a rare and quiet kind of power.",
+    Gemini:"you light up every room without trying. your eyes are curious, your energy is quick, and people feel interesting around you — which is its own kind of gift. you make people feel seen. that is not nothing. that is everything.",
+    Cancer:"people feel safe around you before they know why. there is a softness to your presence that makes others exhale. you carry a warmth that feels like home. not everyone can do that. you do it without even thinking.",
+    Leo:"your presence announces itself. not loudly — just undeniably. people notice you. they remember you. there is a light that lives in you that no room can contain. you were not made to stand in the background. step forward. that is exactly where you belong.",
+    Virgo:"you carry yourself with a quiet elegance that is earned, not performed. people sense your attention to detail, your care, your realness — before you have said a single word. there is nothing accidental about you. and people feel that.",
+    Libra:"beauty genuinely follows you. the way you put yourself together, the spaces you walk into, the energy you bring — everything feels a little more considered, a little more alive. people want to be around you. and honestly? that makes complete sense.",
+    Scorpio:"there is something about you that people cannot quite name — and that is exactly your power. your gaze holds depth. your presence holds mystery. people are drawn to you and slightly in awe of you at the same time. let them wonder. that is yours to keep.",
+    Sagittarius:"your energy is infectious in the best way. you make people believe that something more is possible — just by being in the room. there is an openness to you, a warmth, a sense of adventure that makes people want to follow wherever you are going.",
+    Capricorn:"you walk into rooms and people trust you before you have earned it — because something in your presence says you already have. you carry authority naturally, quietly, without force. that is not something you can fake. it lives in you.",
+    Aquarius:"you are unlike anyone else in a room and people feel that immediately. there is something about you that does not quite fit any box — and that is exactly the point. you were not made to blend in. you were made to make people think differently just by existing.",
+    Pisces:"people exhale around you. your presence feels like a soft landing — gentle, warm, safe. there is a dreaminess to you that makes the world feel a little more magical. you carry that everywhere you go. do not underestimate what that does for people.",
+  },
+  venus:{
+    Aries:null,Taurus:null,Gemini:null,Cancer:null,
+    Leo:null,Virgo:null,Libra:null,Scorpio:null,
+    Sagittarius:null,Capricorn:null,Aquarius:null,Pisces:null,
+  }
+};
+
+const ASPECTS=[
+  {elements:["fire","fire"],text:"there is a consistency to your energy — what you feel on the inside radiates outward without effort. people around you tend to catch your fire without knowing where it came from. that is not a coincidence. that is you."},
+  {elements:["earth","earth"],text:"you are more anchored than you realise. when everything around you shifts, something in you stays rooted. people lean on that — sometimes without even asking permission. it is one of your quietest and most powerful gifts."},
+  {elements:["air","air"],text:"your mind and your heart speak the same language. when you communicate what you truly feel, something in others opens up. you have always had the ability to put words to things people could not name themselves."},
+  {elements:["water","water"],text:"your intuition and your emotions move in the same direction. you rarely have to choose between what you know and what you feel — they usually agree. that inner alignment is a gift most people spend their whole lives searching for."},
+  {elements:["fire","air"],text:"your passion and your intellect are in constant conversation. when you care about something, you do not just feel it — you think it through, articulate it, bring others into it. that combination is rare and magnetic."},
+  {elements:["earth","water"],text:"you feel things deeply and hold them steadily at the same time. you do not collapse under the weight of your emotions — you carry them with grace. that is a kind of strength that cannot be taught. you were born with it."},
+  {elements:["fire","water"],text:"you hold warmth and depth in the same hands. you can be the life of the room and the quiet knowing presence in the corner. people are often surprised by how much lives inside you. that duality is not a contradiction. it is your gift."},
+  {elements:["air","earth"],text:"your ideas do not float away — they land. you have the rare ability to take a vision and make it real, to think something through until it becomes something tangible. that is not common. that is extraordinary."},
+];
+
+const CLOSING={
+  fire:"there is a fire in you that cannot be extinguished — only directed. let it illuminate, not consume. your aura is warm, visible, and alive. the world needs what you carry.",
+  earth:"you are more grounded than you know. your roots go deeper than your doubts. your aura is steady, nourishing, and real. do not underestimate the power of simply being present.",
+  air:"your mind is one of your greatest gifts. the thoughts you think and the words you speak carry power beyond what you realise. your aura is electric, curious, and free. let it move.",
+  water:"your depth is your gift. you feel what others miss and hold what others cannot. your aura is fluid, healing, and profound. the world is softer because you are in it.",
+};
+
+function getSunSign(m,d){for(const s of SIGNS)if((m===s.m1&&d>=s.d1)||(m===s.m2&&d<=s.d2))return s;return SIGNS[9];}
+function getMoonSign(year,month,day,hour){const diff=(new Date(year,month-1,day,hour)-new Date(2000,0,1))/86400000;return SIGNS[Math.floor(((((diff%27.3)+27.3)%27.3)/27.3)*12)%12];}
+function getRisingSign(hour,month){return SIGNS[((Math.floor(hour/2)+Math.floor(month/2))%12+12)%12];}
+function getVenusSign(year,month,day){const diff=(new Date(year,month-1,day)-new Date(2000,0,1))/86400000;return SIGNS[Math.floor(((((diff%225)+225)%225)/225)*12)%12];}
+function getLifePath(year,month,day){let sum=`${year}${String(month).padStart(2,'0')}${String(day).padStart(2,'0')}`.split('').reduce((a,d)=>a+parseInt(d),0);while(sum>9&&sum!==11&&sum!==22&&sum!==33)sum=String(sum).split('').reduce((a,d)=>a+parseInt(d),0);return sum;}
+function getAspects(sun,moon,rising){const pairs=[[sun.element,moon.element],[sun.element,rising.element],[moon.element,rising.element]];const results=[];for(const[e1,e2]of pairs){const sorted=[e1,e2].sort();const match=ASPECTS.find(a=>{const s=[...a.elements].sort();return s[0]===sorted[0]&&s[1]===sorted[1];});if(match&&!results.includes(match))results.push(match);if(results.length===3)break;}while(results.length<3)results.push(ASPECTS[results.length%ASPECTS.length]);return results.slice(0,3);}
+function getDominant(sun,moon,rising){const count={};[sun.element,moon.element,rising.element].forEach(e=>count[e]=(count[e]||0)+1);return Object.entries(count).sort((a,b)=>b[1]-a[1])[0][0];}
+
+function generateReading(){
+  const name=document.getElementById('nameInput').value.trim();
+  const dob=document.getElementById('dobInput').value;
+  const tob=document.getElementById('tobInput').value;
+  const city=document.getElementById('cityInput').value.trim();
+  const err=document.getElementById('errorMsg');
+  if(!name||!dob||!tob||!city){err.style.display='block';return;}
+  err.style.display='none';
+  const[year,month,day]=dob.split('-').map(Number);
+  const[hour]=tob.split(':').map(Number);
+  const sun=getSunSign(month,day),moon=getMoonSign(year,month,day,hour);
+  const rising=getRisingSign(hour,month),venus=getVenusSign(year,month,day);
+  const aspects=getAspects(sun,moon,rising),lp=getLifePath(year,month,day);
+  const dominant=getDominant(sun,moon,rising);
+  document.getElementById('formSection').style.display='none';
+  const loader=document.getElementById('loadingSection');
+  loader.style.display='flex';
+  setTimeout(()=>{
+    loader.style.display='none';
+    buildReading(name,dob,sun,moon,rising,venus,aspects,lp,dominant);
+    document.getElementById('readingSection').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  },2800);
+}
+
+function buildReading(name,dob,sun,moon,rising,venus,aspects,lp,dominant){
+  document.getElementById('readingName').textContent=name.toLowerCase();
+  const d=new Date(dob+'T12:00:00');
+  document.getElementById('readingDate').textContent=d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}).toLowerCase();
+  document.getElementById('sunText').textContent=INTERPRETATIONS.sun[sun.name];
+  document.getElementById('moonText').textContent=INTERPRETATIONS.moon[moon.name];
+  document.getElementById('risingText').textContent=INTERPRETATIONS.rising[rising.name];
+  document.getElementById('venusText').textContent=INTERPRETATIONS.venus[venus.name]||"coming soon — Thando's interpretation of your heart is on its way. 🌿";
+  document.getElementById('aspectsList').innerHTML=aspects.map(a=>`<div class="aspect-item"><p class="aspect-text">${a.text}</p></div>`).join('');
+  document.getElementById('lifepathNumber').textContent=lp;
+  document.getElementById('closingText').textContent=CLOSING[dominant];
+}
+
+function resetReading(){
+  document.getElementById('readingSection').style.display='none';
+  document.getElementById('formSection').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
